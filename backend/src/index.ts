@@ -1,6 +1,6 @@
+import cors from "cors";
 import express, { Request, Response } from "express";
 import { sampleProducts } from "./data";
-import cors from "cors";
 
 const app = express();
 

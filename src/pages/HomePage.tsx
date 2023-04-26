@@ -9,6 +9,7 @@ import { ApiError } from "../types/ApiError";
 import MessageBox from "../components/MessageBox";
 import LoadingBox from "../components/LoadingBox";
 import ProductItem from "../components/ProductItem";
+import { Helmet } from "react-helmet-async";
 
 type State = {
   products: Product[];
@@ -76,6 +77,9 @@ export default function HomePage() {
   ) : (
     <div>
       <Row>
+        <Helmet>
+          <title>Home Page</title>
+        </Helmet>
         {sampleProduct.map((product) => (
           <Col key={product.name} sm={6} md={4} lg={3}>
             <ProductItem product={product} />
