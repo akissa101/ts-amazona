@@ -14,6 +14,7 @@ import { HelmetProvider } from "react-helmet-async";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { PayPalScriptProvider } from "@paypal/react-paypal-js";
+import { StoreProvider } from "./Store.tsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -28,14 +29,14 @@ const router = createBrowserRouter(
 const queryClient = new QueryClient();
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
-  // <StoreProvider>
-  <PayPalScriptProvider options={{ "client-id": "sb" }} deferLoading={true}>
-    <HelmetProvider>
-      <QueryClientProvider client={queryClient}>
-        <RouterProvider router={router} />
-        <ReactQueryDevtools initialIsOpen={false} />
-      </QueryClientProvider>
-    </HelmetProvider>
-  </PayPalScriptProvider>
-  // </StoreProvider>
+  <StoreProvider>
+    <PayPalScriptProvider options={{ "client-id": "sb" }} deferLoading={true}>
+      <HelmetProvider>
+        <QueryClientProvider client={queryClient}>
+          <RouterProvider router={router} />
+          <ReactQueryDevtools initialIsOpen={false} />
+        </QueryClientProvider>
+      </HelmetProvider>
+    </PayPalScriptProvider>
+  </StoreProvider>
 );
