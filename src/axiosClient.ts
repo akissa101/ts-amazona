@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const apiClient = axios.create({
+const axiosClient = axios.create({
   baseURL:
     process.env.NODE_ENV === "development" ? "http://localhost:5000/" : "/",
   headers: {
@@ -21,4 +21,4 @@ const apiClient = axios.create({
 //   }
 // );
 
-export default apiClient;
+export default axiosClient;

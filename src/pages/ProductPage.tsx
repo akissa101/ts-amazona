@@ -23,7 +23,6 @@ export default function ProductPage() {
     <MessageBox variant="danger">{getError(error as ApiError)}</MessageBox>
   ) : (
     <div>
-      ()
       <Helmet>
         <title>Product Page</title>
       </Helmet>
